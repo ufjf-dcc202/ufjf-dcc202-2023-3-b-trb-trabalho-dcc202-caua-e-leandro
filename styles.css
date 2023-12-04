@@ -26,20 +26,25 @@
         }
 
         td {
+            text-align: center;
+        }
+
+        .Tabuleiro td {
             border: 5px solid darkslategrey;
         }
 
-        .Pontos td {
-            border: none;
+        p {
+            width: 100%;
+            height: 100%;
         }
 
-        #Lado1 {
+        #LadoP {
             display: flex;
             flex-direction: column-reverse;
             align-items: start;
         }
 
-        #Lado2 {
+        #LadoO {
             display: flex;
             flex-direction: column;
             align-items: end;
