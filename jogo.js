@@ -1,21 +1,30 @@
 let dado = 0;
 let dadoCtnP = document.querySelector('#dadoP');
 let dadoCtnO = document.querySelector('#dadoO');
-let tabuleiroO = document.querySelectorAll('#Oponent .Tabuleiro p');
-let tabuleiroP = document.querySelectorAll('#Player .Tabuleiro p');
+let tabuleiroO = document.querySelectorAll('#Oponent p');
+let tabuleiroP = document.querySelectorAll('#Player p');
+
 
 function jogarDado() {
     dado = Math.floor(Math.random() * 6) + 1;
-    this.textContent = 0;
     this.textContent = dado;
 }
 
-function posicionaDado()
+jogarDado.call(dadoCtnP);
+
+function posicionaDado(element)
 {
-    this.textContent = dado;
+    element.textContent = dado;
 }
 
 let jogador = {
-    jogada: dadoCtnP.addEventListener('click', jogarDado),
-    posiciona: tabuleiroP.forEach(e => e.addEventListener("click", posicionaDado))
+    jogada: function (){
+        tabuleiroP.forEach(e => e.addEventListener('click', function(e){
+            if(e.target.textContent === "0") {
+                posicionaDado(e.target);
+                jogarDado.call(dadoCtnP);
+            }
+        }));
+    }
 }
+jogador.jogada()
