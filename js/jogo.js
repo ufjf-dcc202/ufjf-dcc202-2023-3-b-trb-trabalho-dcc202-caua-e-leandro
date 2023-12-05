@@ -59,14 +59,15 @@ let jogador = {
 
 let oponente = {
     jogada: function (){
-        tabuleiroO.forEach(e => e.addEventListener('click', function(e){
-            if(e.target.textContent === "0") {
-                posicionaDado(e.target);
-                jogarDado.call(dadoCtnO);
-            }
-            jogador.jogada();
-        }));
-    }
+        let i
+            do{
+                i = Math.floor(Math.random() * 9);
+            }while(tabuleiroO[i].textContent != "0");
+
+            posicionaDado(tabuleiroO[i]);
+            jogarDado.call(dadoCtnO);
+            return 0;
+        }  
 }
 
 export {jogarDado, posicionaDado, jogador, oponente, procuraZero, getTabuleiroP, getTabuleiroO, getDadoCtnO, getDadoCtnP}
