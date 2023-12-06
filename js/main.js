@@ -2,9 +2,6 @@ import {jogarDado, posicionaDado, jogador, oponente, procuraZero, getTabuleiroO,
 
 
 
-jogarDado.call(getDadoCtnP());
-jogarDado.call(getDadoCtnO());
-
 jogador.jogada();
 
 procuraZero(getTabuleiroP());
