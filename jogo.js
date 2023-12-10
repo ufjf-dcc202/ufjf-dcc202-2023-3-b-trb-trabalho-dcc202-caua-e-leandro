@@ -68,24 +68,27 @@ let jogador = {
     },
 
     posicionamento: function (){
-        tabuleiroP.forEach(e => e.addEventListener('click', function(e){
+        tabuleiroP.forEach(e => e.addEventListener('click', (e) => {
             if(e.target.textContent === "0") {
                 posicionaDado(e.target, dadoCtnP);
-                //this.eliminacaoP(dadoCtnP.textContent);
+                this.eliminacaoP();
                 oponente.jogada();
                 return 0;
             }
         }));
     },
 
-    eliminacaoP: function ( valor){
-        for(let j = 0; j < Col1O.length; j++){
+    eliminacaoP: function (){
+        for(let i = 0; i < Col1P.length; i++){
+            let valor = Col1P[i].textContent;
+            for(let j = 0; j < Col1O.length; j++){
                 if(Col1O[j].textContent === valor && valor != "0" && turno === 1){
                     Col1O[0].textContent = "0";
                     Col1O[1].textContent = "0";
                     Col1O[2].textContent = "0";
                 }
             }
+        }
         for(let i = 0; i < Col2P.length; i++){
             let valor = Col2P[i].textContent;
             for(let j = 0; j < Col2O.length; j++){
@@ -119,7 +122,7 @@ let oponente = {
                 i = Math.floor(Math.random() * 9);
             }while(tabuleiroO[i].textContent != "0");
             posicionaDado(tabuleiroO[i], dadoCtnO);
-            //this.eliminacaoO();
+            this.eliminacaoO();
             console.log(Col1P[0].textContent, Col2P[0].textContent, Col3P[0].textContent);
             console.log(Col1P[1].textContent, Col2P[1].textContent, Col3P[1].textContent);
             console.log(Col1P[2].textContent, Col2P[2].textContent, Col3P[2].textContent);
@@ -130,6 +133,7 @@ let oponente = {
 
     eliminacaoO: function (){
         for(let i = 0; i < Col1O.length; i++){
+            let valor = Col1O[i].textContent;
             for(let j = 0; j < Col1P.length; j++){
                 if(Col1P[j].textContent === valor && valor != "0" && turno === 2){
                     Col1P[0].textContent = "0";
