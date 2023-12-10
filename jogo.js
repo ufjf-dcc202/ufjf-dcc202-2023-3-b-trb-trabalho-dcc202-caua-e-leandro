@@ -141,9 +141,7 @@ let jogador = {
             let valor = Col1P[i].textContent;
             for(let j = 0; j < Col1O.length; j++){
                 if(Col1O[j].textContent === valor && valor != "0" && turno === 1){
-                    Col1O[0].textContent = "0";
-                    Col1O[1].textContent = "0";
-                    Col1O[2].textContent = "0";
+                    Col1O[j].textContent = "0";
                     console.log("Eliminou coluna 1 do oponente");
                 }
             }
@@ -152,9 +150,7 @@ let jogador = {
             let valor = Col2P[i].textContent;
             for(let j = 0; j < Col2O.length; j++){
                 if(Col2O[j].textContent === valor && valor != "0" && turno === 1){
-                    Col2O[0].textContent = "0";
-                    Col2O[1].textContent = "0";
-                    Col2O[2].textContent = "0";
+                    Col2O[j].textContent = "0";
                     console.log("Eliminou coluna 2 do oponente");
                 }
             }
@@ -163,9 +159,7 @@ let jogador = {
             let valor = Col3P[i].textContent;
             for(let j = 0; j < Col3O.length; j++){
                 if(Col3O[j].textContent === valor && valor != "0" && turno === 1){
-                    Col3O[0].textContent = "0";
-                    Col3O[1].textContent = "0";
-                    Col3O[2].textContent = "0";
+                    Col3O[j].textContent = "0";
                     console.log("Eliminou coluna 3 do oponente");
                 }
             }
@@ -197,9 +191,7 @@ let oponente = {
             let valor = Col1O[i].textContent;
             for(let j = 0; j < Col1P.length; j++){
                 if(Col1P[j].textContent === valor && valor != "0" && turno === 2){
-                    Col1P[0].textContent = "0";
-                    Col1P[1].textContent = "0";
-                    Col1P[2].textContent = "0";
+                    Col1P[j].textContent = "0";
                     console.log("Eliminou coluna 1 do jogador");
                 }
             }
@@ -208,9 +200,7 @@ let oponente = {
             let valor = Col2O[i].textContent;
             for(let j = 0; j < Col2P.length; j++){
                 if(Col2P[j].textContent === valor && valor != "0" && turno === 2){
-                    Col2P[0].textContent = "0";
-                    Col2P[1].textContent = "0";
-                    Col2P[2].textContent = "0";
+                    Col2P[j].textContent = "0";
                     console.log("Eliminou coluna 2 do jogador");
                 }
             }
@@ -219,9 +209,7 @@ let oponente = {
             let valor = Col3O[i].textContent;
             for(let j = 0; j < Col3P.length; j++){
                 if(Col3P[j].textContent === valor && valor != "0" && turno === 2){
-                    Col3P[0].textContent = "0";
-                    Col3P[1].textContent = "0";
-                    Col3P[2].textContent = "0";
+                    Col3P[j].textContent = "0";
                     console.log("Eliminou coluna 3 do jogador");
                 }
             }
