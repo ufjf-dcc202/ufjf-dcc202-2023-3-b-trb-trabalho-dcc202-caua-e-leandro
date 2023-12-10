@@ -119,7 +119,10 @@ let jogador = {
                 podeClickar = false;
                 posicionaDado(e.target, dadoCtnP);
                 this.eliminacaoP();
-                calculaSomaColuna(PColP);
+                PColP[0].textContent = calculaSomaColuna(Col1P);
+                PColP[1].textContent = calculaSomaColuna(Col2P);
+                PColP[2].textContent = calculaSomaColuna(Col3P);
+
                 //imprimePl();
                 oponente.jogada();
                 //imprimeOp();
@@ -181,6 +184,9 @@ let oponente = {
             }while(tabuleiroO[i].textContent != "0");
             posicionaDado(tabuleiroO[i], dadoCtnO);
             this.eliminacaoO();
+            PColO[0].textContent = calculaSomaColuna(Col1O);
+            PColO[1].textContent = calculaSomaColuna(Col2O);
+            PColO[2].textContent = calculaSomaColuna(Col3O);
             //calculaSomaColuna(PColP);
             jogador.jogada();
             return 0;
