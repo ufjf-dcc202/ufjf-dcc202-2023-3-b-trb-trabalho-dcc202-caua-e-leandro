@@ -62,3 +62,13 @@
             justify-content: center;
             align-items: center;
         }
+
+        .Placar {
+            display: flex;
+            width: 100px;
+            height: 100px;
+            border: 5px solid darkslategrey;
+            margin: 50px;
+            justify-content: center;
+            align-items: center;
+        }

@@ -15,9 +15,13 @@ const Col1O = document.querySelectorAll('#Oponent .Tabuleiro td:nth-child(1) p')
 const Col2O = document.querySelectorAll('#Oponent .Tabuleiro td:nth-child(2) p');
 const Col3O = document.querySelectorAll('#Oponent .Tabuleiro td:nth-child(3) p');
 
-const PColP = document.querySelectorAll('#Player .Placar td p');
+const PColP = document.querySelectorAll('#Player .placarIndividual td p');
+const PFinalP = document.querySelector('#placarP');
 
-const PColO = document.querySelectorAll('#Oponent .Placar td p'); 
+const PColO = document.querySelectorAll('#Oponent .placarIndividual td p');
+const PFinalO = document.querySelector('#placarO');
+
+
 
 function getDadoCtnP () {
     return dadoCtnP;
@@ -68,11 +72,11 @@ function calculaSomaColuna(Col){
     if (num1 === num2 && num1 === num3){
         soma = num1 * 9;
     } else if (num1 === num2 && num1 !== num3){
-        soma = num1 * 2 + num3;
+        soma = num1 * 4 + num3;
     } else if (num1 === num3 && num1 !== num2){
-        soma = num1 * 2 + num2;
+        soma = num1 * 4 + num2;
     } else if (num2 === num3 && num2 !== num1){
-        soma = num2 * 2 + num1;
+        soma = num2 * 4 + num1;
     } else if (num1 !== num2 && num1 !== num3 && num2 !== num3){
         soma = num1 + num2 + num3;
     }
@@ -101,6 +105,7 @@ function imprimePl(){
     console.log("------");
 
 }
+
     
 let jogador = {
     jogada: function (){
@@ -122,10 +127,9 @@ let jogador = {
                 PColP[0].textContent = calculaSomaColuna(Col1P);
                 PColP[1].textContent = calculaSomaColuna(Col2P);
                 PColP[2].textContent = calculaSomaColuna(Col3P);
+                PFinalP.textContent = Number(PColP[0].textContent) + Number(PColP[1].textContent) + Number(PColP[2].textContent);
 
-                //imprimePl();
                 oponente.jogada();
-                //imprimeOp();
 
                 setTimeout(() => {
                     podeClickar = true;
@@ -181,7 +185,7 @@ let oponente = {
             PColO[0].textContent = calculaSomaColuna(Col1O);
             PColO[1].textContent = calculaSomaColuna(Col2O);
             PColO[2].textContent = calculaSomaColuna(Col3O);
-            //calculaSomaColuna(PColP);
+            PFinalO.textContent = Number(PColO[0].textContent) + Number(PColO[1].textContent) + Number(PColO[2].textContent);
             jogador.jogada();
             return 0;
         },
@@ -209,7 +213,7 @@ let oponente = {
             let valor = Col3O[i].textContent;
             for(let j = 0; j < Col3P.length; j++){
                 if(Col3P[j].textContent === valor && valor != "0" && turno === 2){
-                    Col3P[j].textContent = "0";
+                    Col3P[0].textContent = "0";
                     console.log("Eliminou coluna 3 do jogador");
                 }
             }
