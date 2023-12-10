@@ -3,6 +3,3 @@ import {jogarDado, posicionaDado, jogador, oponente, procuraZero, getTabuleiroO,
 
 
 jogador.jogada();
-
-procuraZero(getTabuleiroP());
-procuraZero(getTabuleiroO());
