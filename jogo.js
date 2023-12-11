@@ -44,6 +44,7 @@ function jogarDado(container) {
     container.textContent = dado;
 }
 
+
 function posicionaDado(element, container)
 {
     element.textContent = container.textContent;
@@ -111,6 +112,7 @@ let jogador = {
     jogada: function (){
         turno = 1;
         jogarDado(dadoCtnP);
+        this.redefineEstiloDadoP(dadoCtnP.textContent, dadoCtnP);
         console.log(turno);
         this.posicionamento();
         
@@ -168,6 +170,21 @@ let jogador = {
                 }
             }
         }
+    },
+    redefineEstiloDadoP: function(num, dado) {
+        if (num == 1) {
+            dado.style.backgroundImage = "url('assets/dadoPlayer/dado1p.png')";
+        } else if (num == 2) {
+            dado.style.backgroundImage = "url('assets/dadoPlayer/dado2p.png')";
+        } else if (num == 3) {
+            dado.style.backgroundImage = "url('assets/dadoPlayer/dado3p.png')";
+        } else if (num == 4) {
+            dado.style.backgroundImage = "url('assets/dadoPlayer/dado4p.png')";
+        } else if (num == 5) {
+            dado.style.backgroundImage = "url('assets/dadoPlayer/dado5p.png')";
+        } else if (num == 6) {
+            dado.style.backgroundImage = "url('assets/dadoPlayer/dado6p.png')";
+        }
     }
 }
 
@@ -175,6 +192,7 @@ let oponente = {
     jogada: function (){
         turno = 2;
         jogarDado(dadoCtnO);
+        this.redefineEstiloDadoO(dadoCtnO.textContent, dadoCtnO);
         console.log(turno);
         let i;
             do{
@@ -197,7 +215,7 @@ let oponente = {
                 if(Col1P[j].textContent === valor && valor != "0" && turno === 2){
                     Col1P[j].textContent = "0";
                     console.log("Eliminou coluna 1 do jogador");
-                }
+                }   
             }
         }
         for(let i = 0; i < Col2O.length; i++){
@@ -217,6 +235,21 @@ let oponente = {
                     console.log("Eliminou coluna 3 do jogador");
                 }
             }
+        }
+    },
+    redefineEstiloDadoO: function(num, dado) {
+        if (num == 1) {
+            dado.style.backgroundImage = "url('assets/dadoOponent/dado1o.png')";
+        } else if (num == 2) {
+            dado.style.backgroundImage = "url('assets/dadoOponent/dado2o.png')";
+        } else if (num == 3) {
+            dado.style.backgroundImage = "url('assets/dadoOponent/dado3o.png')";
+        } else if (num == 4) {
+            dado.style.backgroundImage = "url('assets/dadoOponent/dado4o.png')";
+        } else if (num == 5) {
+            dado.style.backgroundImage = "url('assets/dadoOponent/dado5o.png')";
+        } else if (num == 6) {
+            dado.style.backgroundImage = "url('assets/dadoOponent/dado6o.png')";
         }
     }
 }
