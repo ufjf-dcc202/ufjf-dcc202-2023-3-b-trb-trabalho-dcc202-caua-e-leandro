@@ -221,7 +221,5 @@ let oponente = {
     }
 }
 
-
-
-
+jogador.jogada();
 export {jogarDado, posicionaDado, jogador, oponente, procuraZero, getTabuleiroP, getTabuleiroO, getDadoCtnO, getDadoCtnP}

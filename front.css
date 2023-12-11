@@ -1,4 +1,7 @@
-
+@font-face {
+    font-family: FonteTitulo;
+    src: url(Beyonders.ttf);
+}
 body {
 
     display: flex;
@@ -6,7 +9,8 @@ body {
     align-items: center;
     gap: 100px;
     height: 100vh;
-    background-image: url(../assets/img.png);
+    background-image: url(front_page_background.jpg);
+    background-size: cover;
     margin: 0;
 }
 
@@ -15,8 +19,8 @@ main {
     text-align: center;
     background-color: #14407A;
     padding: 20px;
-    border-radius: 8%;
-    box-shadow: 0 40px 40px black;
+    box-shadow: 0 20px 40px black;
+    opacity: 0.9;
 }
 
 h2#bemvindo{
@@ -26,10 +30,15 @@ h2#bemvindo{
 
 h1, h2
 {
-    font-size: 4em;
     font-weight: bold;
     color: #fff;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
+}
+
+h1{
+    font-family: FonteTitulo;
+    font-size: 3em;
+    text-shadow: 10px 10px 2px black;
 }
 
 a
