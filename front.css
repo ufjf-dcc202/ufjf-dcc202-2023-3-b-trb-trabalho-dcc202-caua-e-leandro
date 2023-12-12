@@ -9,7 +9,7 @@ body {
     align-items: center;
     gap: 100px;
     height: 100vh;
-    background-image: url(front_page_background.jpg);
+    background-image: url(assets/images/front_page_background.jpg);
     background-size: cover;
     margin: 0;
 }
