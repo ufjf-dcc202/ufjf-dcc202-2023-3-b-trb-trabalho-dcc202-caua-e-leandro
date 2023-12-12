@@ -35,6 +35,7 @@ table {
     background-color: rgb(47, 48, 48);
     border-radius: 8%;
     border-spacing: 10px;
+    box-shadow: 2px 2px 2px black;
     
 }
 td {
@@ -86,6 +87,7 @@ p {
     justify-content: center;
     align-items: center;
     background-size: cover;
+    box-shadow: 2px 2px 2px 2px black;
 }
 .Placar {
     display: flex;
@@ -167,4 +169,16 @@ p {
     color: white;
     background-color: #DA9341;
     padding: 5px;
+}
+
+#reiniciar
+{
+    text-decoration: none;
+    font-family: FonteTitulo;
+    font-size: xx-small;
+    background-color: #0E4B58;
+    padding: 5px;
+    border-radius: 20%;
+    color: #DA9341;
+    box-shadow: 2px 2px 2px black;
 }

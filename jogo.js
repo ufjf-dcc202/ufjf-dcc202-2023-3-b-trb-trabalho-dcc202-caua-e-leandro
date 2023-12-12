@@ -100,16 +100,13 @@ function testeFimJogo(){
 
     if(!procuraZero(tabuleiroP) || !procuraZero(tabuleiroO)){
         if(Number(PFinalP.textContent) > Number(PFinalO.textContent)){
-            alert("Você ganhou, parabéns!");
-            alert("Placar: " + "Você: " + PFinalP.textContent + " " + "Oponente: " + PFinalO.textContent);
+            alert("Você ganhou, parabéns!"  + "\n" + "Placar: " + "Você: " + PFinalP.textContent + " " + "Oponente: " + PFinalO.textContent);
             return true;
         } else if(Number(PFinalP.textContent) < Number(PFinalO.textContent)){
-            alert("Você perdeu, tente de novo!");
-            alert("Placar: " + "Você: " + PFinalP.textContent + " " + "Oponente: " + PFinalO.textContent);
+            alert("Você perdeu, tente de novo!" + "\n" + "Placar: " + "Você: " + PFinalP.textContent + " " + "Oponente: " + PFinalO.textContent);
             return true;
         } else {
-            alert("O jogo empatou, tente de novo!");
-            alert("Placar: " + "Você: " + PFinalP.textContent + " " + "Oponente: " + PFinalO.textContent);
+            alert("Empate!" + "\n" + "Placar: " + "Você: " + PFinalP.textContent + " " + "Oponente: " + PFinalO.textContent);
             return true;
         }
     }
