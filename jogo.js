@@ -95,13 +95,16 @@ function testeFimJogo(){
 
     if(!procuraZero(tabuleiroP) || !procuraZero(tabuleiroO)){
         if(Number(PFinalP.textContent) > Number(PFinalO.textContent)){
-            window.location.href = "vitoria.html";
+            alert("Você ganhou, parabéns!");
+            alert("Placar: " + "Você: " + PFinalP.textContent + " " + "Oponente: " + PFinalO.textContent);
             return true;
         } else if(Number(PFinalP.textContent) < Number(PFinalO.textContent)){
-            window.location.href = "derrota.html";
+            alert("Você perdeu, tente de novo!");
+            alert("Placar: " + "Você: " + PFinalP.textContent + " " + "Oponente: " + PFinalO.textContent);
             return true;
         } else {
             alert("O jogo empatou, tente de novo!");
+            alert("Placar: " + "Você: " + PFinalP.textContent + " " + "Oponente: " + PFinalO.textContent);
             return true;
         }
     }
