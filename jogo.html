@@ -10,6 +10,8 @@
 
 <body>
     <aside id="LadoP">
+        <div id="playerLeg"><p>Você</p></div>
+        <div id="player"></div>
         <div class="Dado" id="dadoP"><p class="numeroDados"></p></div>
         <div class="Placar" id="placarP"><p></p></div>
     </aside>
@@ -35,7 +37,7 @@
                     <td><p>0</p></td>
                 </tr>
 
-                <tr class="placarIndividual">
+                <tr class="placarIndividual" id="pIndividualO">
                     <td><p>0</p></td>
                     <td><p>0</p></td>
                     <td><p>0</p></td>
@@ -45,7 +47,7 @@
 
         <table id="Player">
             <tbody>
-                <tr class="placarIndividual">
+                <tr class="placarIndividual" id="pIndividualP">
                     <td><p>0</p></td>
                     <td><p>0</p></td>
                     <td><p>0</p></td>
@@ -73,7 +75,9 @@
     </main>
 
     <aside id="LadoO">
-        <div class="Dado" id="dadoO"><p class="numeroDados"></p></div>
+        <div id="inimigoLeg"><p>ChatGPT-2077</p></div>
+        <div id="inimigo"></div>
+        <div class="Dado" id="dadoO"><p class="numeroDados">1</p></div>
         <div class="Placar" id="placarO"><p></p></div>
     </aside>
 

@@ -2,17 +2,24 @@
     font-family: FonteWorn;
     src: url(assets/fonts/SubwayNovella-KEw7.ttf);
 }
+@font-face {
+    font-family: FonteTitulo;
+    src: url(assets/fonts/Beyonders.ttf);
+}
 
 
 body {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 100vh;
     background: lightcyan;
     margin: 0;
+    background-image: url(assets/images/fundoMain.png);
+    background-size: cover;
 }
 main {
     display: flex;
+    grid-column: 3;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -25,7 +32,8 @@ aside {
 table {
     height: 40%;
     width: 400px;
-    background-color: lightblue;
+    background-color: rgb(47, 48, 48);
+    border-radius: 8%;
     border-spacing: 10px;
     
 }
@@ -38,7 +46,6 @@ td {
     border-width: 1px;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    background-color: black;
 }
 p {
     display: flex;
@@ -49,18 +56,22 @@ p {
     margin: auto;
 }
 .Tabuleiro td {
-    border: 5px solid black;
-    color: white;
+    color: #DA9341;
+    background-color: #0E4B58;
+    font-size: 2.7em;
+    text-shadow: 1px 1px 1px black;
 }
+
 #LadoP {
     display: flex;
     flex-direction: column-reverse;
-    align-items: start;
+    align-items: center;
 }
 #LadoO {
     display: flex;
-    flex-direction: column;
-    align-items: end;
+    flex-direction: column-reverse;
+    align-items: center;
+    grid-column: 5;
 }
 .Dado {
     display: flex;
@@ -90,20 +101,70 @@ p {
 }
 #placarP
 {
-    background-image: url(assets/placar/fundoPlacarPlayer.png);
+    background-image: url(assets/images/placar/fundoPlacarPlayer.png);
     color:#0E4B58;
     border-top-right-radius: 10%;
     border-bottom-left-radius: 10%;
+    grid-row: 3;
 }
 #placarO
 {
-    background-image: url(assets/placar/fundoPlacarOponent.png);
+    background-image: url(assets/images/placar/fundoPlacarOponent.png);
     color:#DA9341;
     border-top-right-radius: 10%;
     border-bottom-left-radius: 10%;
+
 }
 .placarIndividual
 {
-    color: red;
+    color: white;
+    font-size: 1.5em;
+}
+#pIndividualP
+{
+    background-color: transparent;
+    text-shadow: 2px 2px 2px black;
 }
 
+#inimigo
+{
+    display: flex;
+    width: 200px;
+    height: 200px;
+    background-image: url(assets/images/inimigo.jpeg);
+    border: #0E4B58 5px solid;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+#inimigoLeg
+{
+    font-size: xx-small;
+    font-family: FonteTitulo;
+    color: white;
+    background-color: #0E4B58;
+    padding: 5px;
+}
+
+#player
+{
+    display: flex;
+    grid-column: 1;
+    width: 200px;
+    height: 200px;
+    background-image: url(assets/images/player.jpeg);
+    border: #DA9341 5px solid;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+#playerLeg
+{
+    font-size: xx-small;
+    font-family: FonteTitulo;
+    color: white;
+    background-color: #DA9341;
+    padding: 5px;
+}

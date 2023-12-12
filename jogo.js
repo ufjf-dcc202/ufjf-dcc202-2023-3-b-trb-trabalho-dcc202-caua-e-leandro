@@ -16,10 +16,10 @@ const Col2O = document.querySelectorAll('#Oponent .Tabuleiro td:nth-child(2) p')
 const Col3O = document.querySelectorAll('#Oponent .Tabuleiro td:nth-child(3) p');
 
 const PColP = document.querySelectorAll('#Player .placarIndividual td p');
-const PFinalP = document.querySelector('#placarP');
+var PFinalP = document.querySelector('#placarP');
 
 const PColO = document.querySelectorAll('#Oponent .placarIndividual td p');
-const PFinalO = document.querySelector('#placarO');
+var PFinalO = document.querySelector('#placarO');
 
 
 
@@ -72,50 +72,68 @@ function calculaSomaColuna(Col){
 
     if (num1 === num2 && num1 === num3){
         soma = num1 * 9;
-    } else if (num1 === num2 && num1 !== num3){
+        } else if (num1 === num2 && num1 !== num3){
         soma = num1 * 4 + num3;
-    } else if (num1 === num3 && num1 !== num2){
+        } else if (num1 === num3 && num1 !== num2){
         soma = num1 * 4 + num2;
-    } else if (num2 === num3 && num2 !== num1){
+        } else if (num2 === num3 && num2 !== num1){
         soma = num2 * 4 + num1;
-    } else if (num1 !== num2 && num1 !== num3 && num2 !== num3){
+        } else if (num1 !== num2 && num1 !== num3 && num2 !== num3){
         soma = num1 + num2 + num3;
-    }
+        }
 
     return soma;
 }
 
-function imprimeOp(){
-    console.log("------");
-    console.log("Oponente");
-    console.log("------");
-    console.log(Col1O[0].textContent, Col2O[0].textContent, Col3O[0].textContent);
-    console.log(Col1O[1].textContent, Col2O[1].textContent, Col3O[1].textContent);
-    console.log(Col1O[2].textContent, Col2O[2].textContent, Col3O[2].textContent);
-    console.log("Dado oponente: ", dadoCtnO.textContent);
-    console.log("------");
-}
-function imprimePl(){
-    console.log("------");
-    console.log("Player");
-    console.log("------");
-    console.log(Col1P[0].textContent, Col2P[0].textContent, Col3P[0].textContent);
-    console.log(Col1P[1].textContent, Col2P[1].textContent, Col3P[1].textContent);
-    console.log(Col1P[2].textContent, Col2P[2].textContent, Col3P[2].textContent);
-    console.log("Dado jogador: ", dadoCtnP.textContent);
-    console.log("------");
+function testeFimJogo(){
+    let tabuleiroP = getTabuleiroP();
+    let tabuleiroO = getTabuleiroO();
+    let PFinalP = document.querySelector('#placarP');
+    let PFinalO = document.querySelector('#placarO');
+    window.PColP = PFinalP.textContent;
+    window.PColO = PFinalO.textContent;
 
+    if(!procuraZero(tabuleiroP) || !procuraZero(tabuleiroO)){
+        if(Number(PFinalP.textContent) > Number(PFinalO.textContent)){
+            window.location.href = "vitoria.html";
+            return true;
+        } else if(Number(PFinalP.textContent) < Number(PFinalO.textContent)){
+            window.location.href = "derrota.html";
+            return true;
+        } else {
+            alert("O jogo empatou, tente de novo!");
+            return true;
+        }
+    }
+    return false;
 }
 
-    
+function imprime(){
+    console.log("Turno: " + turno);
+    console.log("Tabuleiro Player: ");
+    for(let i = 0; i < tabuleiroP.length; i++){
+        if(Col1P[i] && Col2P[i] && Col3P[i]) {
+            console.log(i+1  + " " +  "Coluna:  "  + " " +  Col1P[i].textContent + " " + Col2P[i].textContent + " " + Col3P[i].textContent);
+        }
+    }
+    console.log("Tabuleiro Oponente: ");
+    for(let i = 0; i < tabuleiroO.length; i++){
+        if(Col1O[i] && Col2O[i] && Col3O[i]) {
+            console.log(i+1  + " " +  "Coluna:" + " " + Col1O[i].textContent + " " + Col2O[i].textContent + " " + Col3O[i].textContent);
+        }
+    }
+    return;
+}
+
 let jogador = {
     jogada: function (){
         turno = 1;
         jogarDado(dadoCtnP);
         this.redefineEstiloDadoP(dadoCtnP.textContent, dadoCtnP);
         console.log(turno);
+        if(!testeFimJogo()){
         this.posicionamento();
-        
+        }
     },
 
     posicionamento: function () {
@@ -130,13 +148,11 @@ let jogador = {
                 PColP[1].textContent = calculaSomaColuna(Col2P);
                 PColP[2].textContent = calculaSomaColuna(Col3P);
                 PFinalP.textContent = Number(PColP[0].textContent) + Number(PColP[1].textContent) + Number(PColP[2].textContent);
-
-                oponente.jogada();
-
                 setTimeout(() => {
                     podeClickar = true;
                 }, 200);
-
+                imprime();
+                oponente.jogada();
                 return 0;
             }
         }));
@@ -148,7 +164,6 @@ let jogador = {
             for(let j = 0; j < Col1O.length; j++){
                 if(Col1O[j].textContent === valor && valor != "0" && turno === 1){
                     Col1O[j].textContent = "0";
-                    console.log("Eliminou coluna 1 do oponente");
                 }
             }
         }
@@ -157,7 +172,6 @@ let jogador = {
             for(let j = 0; j < Col2O.length; j++){
                 if(Col2O[j].textContent === valor && valor != "0" && turno === 1){
                     Col2O[j].textContent = "0";
-                    console.log("Eliminou coluna 2 do oponente");
                 }
             }
         }
@@ -166,7 +180,6 @@ let jogador = {
             for(let j = 0; j < Col3O.length; j++){
                 if(Col3O[j].textContent === valor && valor != "0" && turno === 1){
                     Col3O[j].textContent = "0";
-                    console.log("Eliminou coluna 3 do oponente");
                 }
             }
         }
@@ -198,12 +211,15 @@ let oponente = {
             do{
                 i = Math.floor(Math.random() * 9);
             }while(tabuleiroO[i].textContent != "0");
-            posicionaDado(tabuleiroO[i], dadoCtnO);
+            if(!testeFimJogo()){
+                posicionaDado(tabuleiroO[i], dadoCtnO);
+            }
             this.eliminacaoO();
             PColO[0].textContent = calculaSomaColuna(Col1O);
             PColO[1].textContent = calculaSomaColuna(Col2O);
             PColO[2].textContent = calculaSomaColuna(Col3O);
             PFinalO.textContent = Number(PColO[0].textContent) + Number(PColO[1].textContent) + Number(PColO[2].textContent);
+            imprime();  
             jogador.jogada();
             return 0;
         },
@@ -214,7 +230,6 @@ let oponente = {
             for(let j = 0; j < Col1P.length; j++){
                 if(Col1P[j].textContent === valor && valor != "0" && turno === 2){
                     Col1P[j].textContent = "0";
-                    console.log("Eliminou coluna 1 do jogador");
                 }   
             }
         }
@@ -223,7 +238,6 @@ let oponente = {
             for(let j = 0; j < Col2P.length; j++){
                 if(Col2P[j].textContent === valor && valor != "0" && turno === 2){
                     Col2P[j].textContent = "0";
-                    console.log("Eliminou coluna 2 do jogador");
                 }
             }
         }
@@ -231,8 +245,7 @@ let oponente = {
             let valor = Col3O[i].textContent;
             for(let j = 0; j < Col3P.length; j++){
                 if(Col3P[j].textContent === valor && valor != "0" && turno === 2){
-                    Col3P[0].textContent = "0";
-                    console.log("Eliminou coluna 3 do jogador");
+                    Col3P[j].textContent = "0";
                 }
             }
         }
@@ -255,4 +268,3 @@ let oponente = {
 }
 
 jogador.jogada();
-export {jogarDado, posicionaDado, jogador, oponente, procuraZero, getTabuleiroP, getTabuleiroO, getDadoCtnO, getDadoCtnP}
