@@ -89,6 +89,10 @@ p {
     background-size: cover;
     box-shadow: 2px 2px 2px 2px black;
 }
+#dadoO
+{
+    background-image: url(assets/dadoOponent/dadoVazio.png);
+}
 .Placar {
     display: flex;
     font-family: FonteWorn;
