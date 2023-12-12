@@ -96,6 +96,18 @@ function testeFimJogo(){
     return false;
 }
 
+function atualizaPlacar() {
+    PColP[0].textContent = calculaSomaColuna(Col1P);
+    PColP[1].textContent = calculaSomaColuna(Col2P);
+    PColP[2].textContent = calculaSomaColuna(Col3P);
+    PFinalP.textContent = Number(PColP[0].textContent) + Number(PColP[1].textContent) + Number(PColP[2].textContent);
+    
+    PColO[0].textContent = calculaSomaColuna(Col1O);
+    PColO[1].textContent = calculaSomaColuna(Col2O);
+    PColO[2].textContent = calculaSomaColuna(Col3O);
+    PFinalO.textContent = Number(PColO[0].textContent) + Number(PColO[1].textContent) + Number(PColO[2].textContent);
+}
+
 let jogador = {
     jogada: function (){
         turno = 1;
@@ -114,10 +126,7 @@ let jogador = {
                 podeClickar = false;
                 posicionaDado(e.target, dadoCtnP);
                 this.eliminacaoP();
-                PColP[0].textContent = calculaSomaColuna(Col1P);
-                PColP[1].textContent = calculaSomaColuna(Col2P);
-                PColP[2].textContent = calculaSomaColuna(Col3P);
-                PFinalP.textContent = Number(PColP[0].textContent) + Number(PColP[1].textContent) + Number(PColP[2].textContent);
+                atualizaPlacar();
                 setTimeout(() => {
                     podeClickar = true;
                 }, 200);
@@ -183,9 +192,7 @@ let oponente = {
                 posicionaDado(tabuleiroO[i], dadoCtnO);
             }
             this.eliminacaoO();
-            PColO[0].textContent = calculaSomaColuna(Col1O);
-            PColO[1].textContent = calculaSomaColuna(Col2O);
-            PColO[2].textContent = calculaSomaColuna(Col3O);
+            atualizaPlacar();
             PFinalO.textContent = Number(PColO[0].textContent) + Number(PColO[1].textContent) + Number(PColO[2].textContent);  
             jogador.jogada();
             return 0;
