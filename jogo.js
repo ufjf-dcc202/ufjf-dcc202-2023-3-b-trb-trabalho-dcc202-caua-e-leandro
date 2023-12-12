@@ -16,24 +16,15 @@ const Col2O = document.querySelectorAll('#Oponent .Tabuleiro td:nth-child(2) p')
 const Col3O = document.querySelectorAll('#Oponent .Tabuleiro td:nth-child(3) p');
 
 const PColP = document.querySelectorAll('#Player .placarIndividual td p');
-var PFinalP = document.querySelector('#placarP');
+const PFinalP = document.querySelector('#placarP');
 
 const PColO = document.querySelectorAll('#Oponent .placarIndividual td p');
-var PFinalO = document.querySelector('#placarO');
+const PFinalO = document.querySelector('#placarO');
 
 
 function tocaMusica() {
     let audio = new Audio('assets/trilha.mp3');
     audio.play();
-}
-
-
-function getDadoCtnP () {
-    return dadoCtnP;
-}
-
-function getDadoCtnO () {
-    return dadoCtnO;
 }
 
 function getTabuleiroP () {
@@ -43,12 +34,10 @@ function getTabuleiroP () {
 function getTabuleiroO () {
     return tabuleiroO;
 }
-
 function jogarDado(container) {
     dado = Math.floor(Math.random() * 6) + 1;
     container.textContent = dado;
 }
-
 
 function posicionaDado(element, container)
 {
@@ -61,11 +50,9 @@ function procuraZero(tabuleiro)
     {
         if(tabuleiro[i].textContent === "0")
         {
-            console.log(true);
             return true;
         }
     }
-    console.log(false);;
     return false;
 }
 
@@ -93,10 +80,6 @@ function calculaSomaColuna(Col){
 function testeFimJogo(){
     let tabuleiroP = getTabuleiroP();
     let tabuleiroO = getTabuleiroO();
-    let PFinalP = document.querySelector('#placarP');
-    let PFinalO = document.querySelector('#placarO');
-    window.PColP = PFinalP.textContent;
-    window.PColO = PFinalO.textContent;
 
     if(!procuraZero(tabuleiroP) || !procuraZero(tabuleiroO)){
         if(Number(PFinalP.textContent) > Number(PFinalO.textContent)){
@@ -113,29 +96,11 @@ function testeFimJogo(){
     return false;
 }
 
-function imprime(){
-    console.log("Turno: " + turno);
-    console.log("Tabuleiro Player: ");
-    for(let i = 0; i < tabuleiroP.length; i++){
-        if(Col1P[i] && Col2P[i] && Col3P[i]) {
-            console.log(i+1  + " " +  "Coluna:  "  + " " +  Col1P[i].textContent + " " + Col2P[i].textContent + " " + Col3P[i].textContent);
-        }
-    }
-    console.log("Tabuleiro Oponente: ");
-    for(let i = 0; i < tabuleiroO.length; i++){
-        if(Col1O[i] && Col2O[i] && Col3O[i]) {
-            console.log(i+1  + " " +  "Coluna:" + " " + Col1O[i].textContent + " " + Col2O[i].textContent + " " + Col3O[i].textContent);
-        }
-    }
-    return;
-}
-
 let jogador = {
     jogada: function (){
         turno = 1;
         jogarDado(dadoCtnP);
         this.redefineEstiloDadoP(dadoCtnP.textContent, dadoCtnP);
-        console.log(turno);
         if(!testeFimJogo()){
         this.posicionamento();
         }
@@ -156,7 +121,6 @@ let jogador = {
                 setTimeout(() => {
                     podeClickar = true;
                 }, 200);
-                imprime();
                 oponente.jogada();
                 return 0;
             }
@@ -211,7 +175,6 @@ let oponente = {
         turno = 2;
         jogarDado(dadoCtnO);
         this.redefineEstiloDadoO(dadoCtnO.textContent, dadoCtnO);
-        console.log(turno);
         let i;
             do{
                 i = Math.floor(Math.random() * 9);
@@ -223,8 +186,7 @@ let oponente = {
             PColO[0].textContent = calculaSomaColuna(Col1O);
             PColO[1].textContent = calculaSomaColuna(Col2O);
             PColO[2].textContent = calculaSomaColuna(Col3O);
-            PFinalO.textContent = Number(PColO[0].textContent) + Number(PColO[1].textContent) + Number(PColO[2].textContent);
-            imprime();  
+            PFinalO.textContent = Number(PColO[0].textContent) + Number(PColO[1].textContent) + Number(PColO[2].textContent);  
             jogador.jogada();
             return 0;
         },
