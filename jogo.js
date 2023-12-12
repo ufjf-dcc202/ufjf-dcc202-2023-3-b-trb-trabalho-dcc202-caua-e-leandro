@@ -22,11 +22,6 @@ const PColO = document.querySelectorAll('#Oponent .placarIndividual td p');
 var PFinalO = document.querySelector('#placarO');
 
 
-function tocaMusica() {
-    let audio = new Audio('assets/trilha.mp3');
-    audio.play();
-}
-
 
 function getDadoCtnP () {
     return dadoCtnP;
@@ -272,5 +267,4 @@ let oponente = {
     }
 }
 
-tocaMusica();
 jogador.jogada();
