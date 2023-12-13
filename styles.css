@@ -186,3 +186,13 @@ p {
     color: #DA9341;
     box-shadow: 2px 2px 2px black;
 }
+
+#Player .Tabuleiro p:hover
+{
+    background-color: #DA9341;
+    color: #0E4B58;
+    text-shadow: 1px 1px 1px black;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    
+}
