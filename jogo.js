@@ -24,6 +24,7 @@ const PFinalO = document.querySelector('#placarO');
 
 function tocaMusica() {
     let audio = new Audio('assets/trilha.mp3');
+    audio.loop = true;
     audio.play();
 }
 
