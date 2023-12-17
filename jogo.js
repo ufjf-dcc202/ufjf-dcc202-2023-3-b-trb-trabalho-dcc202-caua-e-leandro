@@ -21,6 +21,10 @@ const PFinalP = document.querySelector('#placarP');
 const PColO = document.querySelectorAll('#Oponent .placarIndividual td p');
 const PFinalO = document.querySelector('#placarO');
 
+const FinalV = document.querySelector('#vitoria');
+const FinalD = document.querySelector('#derrota');
+const FinalE = document.querySelector('#empate');
+
 
 function tocaMusica() {
     let audio = new Audio('assets/trilha.mp3');
@@ -84,13 +88,13 @@ function testeFimJogo(){
 
     if(!procuraZero(tabuleiroP) || !procuraZero(tabuleiroO)){
         if(Number(PFinalP.textContent) > Number(PFinalO.textContent)){
-            alert("Você ganhou, parabéns!"  + "\n" + "Placar: " + "Você: " + PFinalP.textContent + " " + "Oponente: " + PFinalO.textContent);
+            FinalV.style.display = "grid";
             return true;
         } else if(Number(PFinalP.textContent) < Number(PFinalO.textContent)){
-            alert("Você perdeu, tente de novo!" + "\n" + "Placar: " + "Você: " + PFinalP.textContent + " " + "Oponente: " + PFinalO.textContent);
+            FinalD.style.display = "grid";
             return true;
         } else {
-            alert("Empate!" + "\n" + "Placar: " + "Você: " + PFinalP.textContent + " " + "Oponente: " + PFinalO.textContent);
+            FinalE.style.display = "grid";
             return true;
         }
     }
